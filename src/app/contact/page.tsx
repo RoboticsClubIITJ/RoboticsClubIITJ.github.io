@@ -76,7 +76,7 @@ export default function ContactPage() {
           transition={{ duration: 0.7 }}
           className="mb-16"
         >
-          <span className="text-xs font-bold tracking-[0.25em] text-cyan-400 uppercase">// CONNECT</span>
+          <span className="text-xs font-bold tracking-[0.25em] text-cyan-400 uppercase">CONNECT</span>
           <h1 className="text-5xl md:text-6xl font-black text-white mt-3 mb-4">Contact &amp; Socials</h1>
           <div className="w-16 h-0.5 bg-gradient-to-r from-cyan-500 to-transparent mb-6" />
           <p className="text-white/50 text-lg max-w-2xl">
@@ -97,7 +97,7 @@ export default function ContactPage() {
               <div className="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center">
                 <Mail className="w-5 h-5 text-cyan-400" />
               </div>
-              <span className="text-xs font-bold tracking-[0.2em] text-white/40 uppercase">// EMAIL ADDRESS</span>
+              <span className="text-xs font-bold tracking-[0.2em] text-white/40 uppercase">EMAIL ADDRESS</span>
             </div>
             <div className="flex items-center justify-between gap-4 flex-wrap">
               <a href={`mailto:${siteConfig.email}`} className="text-lg font-bold text-white hover:text-cyan-400 transition-colors break-all">
@@ -124,7 +124,7 @@ export default function ContactPage() {
               <div className="w-10 h-10 rounded-xl bg-violet-500/10 border border-violet-500/20 flex items-center justify-center">
                 <MapPin className="w-5 h-5 text-violet-400" />
               </div>
-              <span className="text-xs font-bold tracking-[0.2em] text-white/40 uppercase">// PHYSICAL COORDINATES</span>
+              <span className="text-xs font-bold tracking-[0.2em] text-white/40 uppercase">PHYSICAL COORDINATES</span>
             </div>
             <div>
               <p className="text-white font-bold">{siteConfig.location.name}</p>
@@ -142,7 +142,7 @@ export default function ContactPage() {
           className="p-8 rounded-2xl border border-white/8 bg-white/3 backdrop-blur-sm"
         >
           <div className="mb-8">
-            <span className="text-xs font-bold tracking-[0.2em] text-white/40 uppercase">// CONNECTIVITY PORTS</span>
+            <span className="text-xs font-bold tracking-[0.2em] text-white/40 uppercase">CONNECTIVITY PORTS</span>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {socials.map((s) => (

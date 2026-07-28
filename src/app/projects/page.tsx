@@ -22,7 +22,7 @@ export default function ProjectsPage() {
           transition={{ duration: 0.7 }}
           className="mb-12"
         >
-          <span className="text-xs font-bold tracking-[0.25em] text-cyan-400 uppercase">// PROJECT ARCHIVE</span>
+          <span className="text-xs font-bold tracking-[0.25em] text-cyan-400 uppercase">PROJECT ARCHIVE</span>
           <h1 className="text-5xl md:text-6xl font-black text-white mt-3 mb-4">Club Projects</h1>
           <div className="w-16 h-0.5 bg-gradient-to-r from-cyan-500 to-transparent mb-6" />
           <p className="text-white/50 text-lg">Browse our completed and ongoing projects.</p>

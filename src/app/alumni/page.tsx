@@ -31,7 +31,7 @@ export default function AlumniPage() {
           transition={{ duration: 0.7 }}
           className="mb-16"
         >
-          <span className="text-xs font-bold tracking-[0.25em] text-cyan-400 uppercase">// LEGACY REGISTRY</span>
+          <span className="text-xs font-bold tracking-[0.25em] text-cyan-400 uppercase">LEGACY REGISTRY</span>
           <h1 className="text-5xl md:text-6xl font-black text-white mt-3 mb-4">Our Alumni</h1>
           <div className="w-16 h-0.5 bg-gradient-to-r from-cyan-500 to-transparent mb-6" />
           <p className="text-white/50 text-lg max-w-2xl">

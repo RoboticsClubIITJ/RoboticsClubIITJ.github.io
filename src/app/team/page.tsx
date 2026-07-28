@@ -29,7 +29,7 @@ export default function TeamPage() {
           transition={{ duration: 0.7 }}
           className="mb-16"
         >
-          <span className="text-xs font-bold tracking-[0.25em] text-cyan-400 uppercase">// TEAM DIRECTORY</span>
+          <span className="text-xs font-bold tracking-[0.25em] text-cyan-400 uppercase">TEAM DIRECTORY</span>
           <h1 className="text-5xl md:text-6xl font-black text-white mt-3 mb-4">Core Team Members</h1>
           <div className="w-16 h-0.5 bg-gradient-to-r from-cyan-500 to-transparent mb-6" />
           <p className="text-white/50 text-lg max-w-2xl">
@@ -84,7 +84,7 @@ export default function TeamPage() {
           viewport={{ once: true }}
           className="mb-16"
         >
-          <span className="text-xs font-bold tracking-[0.25em] text-white/30 uppercase">// FACULTY ADVISOR</span>
+          <span className="text-xs font-bold tracking-[0.25em] text-white/30 uppercase">FACULTY ADVISOR</span>
           <h2 className="text-3xl font-black text-white mt-2 mb-8">Faculty Advisor</h2>
           <div className="p-8 rounded-2xl border border-cyan-500/15 bg-cyan-500/5 backdrop-blur-sm max-w-md">
             <div className="flex items-center gap-5">

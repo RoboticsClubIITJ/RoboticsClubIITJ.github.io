@@ -56,16 +56,6 @@ export default function HomePage() {
         <div className="relative z-20 min-h-screen flex flex-col justify-center px-6 sm:px-10 lg:px-20 pt-24 pb-24 pointer-events-none">
           <div className="max-w-2xl">
 
-            {/* Eyebrow tag */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-            >
-              <span className="inline-block mb-6 px-4 py-1.5 rounded-full text-xs font-bold tracking-[0.25em] uppercase liquid-glass text-cyan-400 border-cyan-500/20">
-                // IIT JODHPUR ROBOTICS CLUB
-              </span>
-            </motion.div>
 
             {/* Headline */}
             <motion.h1
@@ -145,7 +135,7 @@ export default function HomePage() {
       <section className="relative py-28 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto">
           <div className="mb-16 text-center">
-            <span className="text-xs font-bold tracking-[0.25em] text-slate-400 uppercase">// CAPABILITIES</span>
+            <span className="text-xs font-bold tracking-[0.25em] text-slate-400 uppercase">CAPABILITIES</span>
             <h2 className="text-4xl md:text-5xl font-black text-white mt-3">What We Do</h2>
             <div className="w-16 h-0.5 bg-gradient-to-r from-transparent via-slate-500/50 to-transparent mx-auto mt-4" />
           </div>
@@ -176,7 +166,7 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto">
           <div className="flex items-end justify-between mb-16">
             <div>
-              <span className="text-xs font-bold tracking-[0.25em] text-cyan-400 uppercase">// FEATURED WORK</span>
+              <span className="text-xs font-bold tracking-[0.25em] text-cyan-400 uppercase">FEATURED WORK</span>
               <h2 className="text-4xl md:text-5xl font-black text-white mt-3">Flagship Projects</h2>
             </div>
             <Link href="/projects">

@@ -62,7 +62,7 @@ export default function AboutPage() {
           transition={{ duration: 0.7 }}
           className="mb-20"
         >
-          <span className="text-xs font-bold tracking-[0.25em] text-slate-400 uppercase">// ABOUT US</span>
+          <span className="text-xs font-bold tracking-[0.25em] text-slate-400 uppercase">ABOUT US</span>
           <h1 className="text-5xl md:text-6xl font-black text-white mt-3 mb-6">About the Club</h1>
           <div className="w-16 h-0.5 bg-gradient-to-r from-slate-500/60 to-transparent mb-8" />
           <div className="max-w-3xl">
@@ -83,7 +83,7 @@ export default function AboutPage() {
 
         {/* What defines us */}
         <div className="mb-20">
-          <span className="text-xs font-bold tracking-[0.25em] text-white/25 uppercase">// WHAT DEFINES US</span>
+          <span className="text-xs font-bold tracking-[0.25em] text-white/25 uppercase">WHAT DEFINES US</span>
           <h2 className="text-3xl font-black text-white mt-2 mb-10">Our Core Pillars</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {pillars.map((p, i) => (
@@ -109,7 +109,7 @@ export default function AboutPage() {
           viewport={{ once: true }}
           className="mb-20 p-8 rounded-2xl border border-white/7 bg-white/2 backdrop-blur-sm"
         >
-          <span className="text-xs font-bold tracking-[0.25em] text-white/25 uppercase">// FACULTY ADVISOR</span>
+          <span className="text-xs font-bold tracking-[0.25em] text-white/25 uppercase">FACULTY ADVISOR</span>
           <div className="mt-6 flex items-center gap-6">
             <div className="w-16 h-16 rounded-full bg-gradient-to-br from-slate-600/30 to-slate-700/30 border border-white/8 flex items-center justify-center text-2xl font-black text-white/80">
               BK
