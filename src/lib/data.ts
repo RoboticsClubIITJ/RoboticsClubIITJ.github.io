@@ -1,0 +1,243 @@
+export const siteConfig = {
+  name: "Robotics Club IIT Jodhpur",
+  shortName: "ROBOTICS IITJ",
+  tagline: "Building autonomous systems, intelligent drones, and state-of-the-art robotic solutions at the Indian Institute of Technology Jodhpur.",
+  metaDescription: "Official website of the Robotics Club, IIT Jodhpur. Exploring the frontiers of autonomous and intelligent systems for a better world",
+  email: "robotics@iitj.ac.in",
+  socials: {
+    github: "https://github.com/RoboticsClubIITJ",
+    linkedin: "https://www.linkedin.com/company/robotics-club-iit-jodhpur/",
+    instagram: "https://www.instagram.com/roboticsiitj?igsh=ajh1aGllejJ5bzEw",
+    discord: "https://discord.com/channels/785215759411839018/785216829580771328",
+  },
+  notionRepo: "https://app.notion.com/p/Robotics-Society-Knowledge-Repository-3a5f496d3f73818a8866c490e687b164",
+  iitjSite: "https://iitj.ac.in",
+  location: {
+    name: "Anand Rathi Tinkerers' Lab (E-16 Berm)",
+    address: "Indian Institute of Technology Jodhpur",
+    city: "Karwar, NH 62, Jodhpur, Rajasthan 342030",
+  },
+};
+
+export const navLinks = [
+  { label: "Home", href: "/" },
+  { label: "About", href: "/about" },
+  { label: "Projects", href: "/projects" },
+  { label: "Team", href: "/team" },
+  { label: "Alumni", href: "/alumni" },
+  { label: "Join Us", href: "/contact" },
+  { label: "Knowledge Base", href: "https://app.notion.com/p/Robotics-Society-Knowledge-Repository-3a5f496d3f73818a8866c490e687b164", external: true },
+];
+
+export const whatWeDo = [
+  {
+    id: "ros",
+    title: "Robot Middleware & ROS",
+    icon: "cpu",
+    description: "Robot Operating System (ROS 1/2) development, simulation environments (Gazebo), navigation and path planning module development",
+    color: "cyan",
+  },
+  {
+    id: "control",
+    title: "Control Systems",
+    icon: "sliders",
+    description: "Robust feedback loops, PID/MPC controllers, state estimators, Kalman filtering, stability models for precise autonomous locomotion.",
+    color: "violet",
+  },
+  {
+    id: "cv",
+    title: "Computer Vision",
+    icon: "eye",
+    description: "Visual SLAM (Simultaneous Localization and Mapping), real-time object detection models, sensor fusion, and ML/DL approaches for classification and decision making.",
+    color: "emerald",
+  },
+  {
+    id: "autonomous",
+    title: "Autonomous Systems",
+    icon: "navigation",
+    description: "Drones, Mobile Robots, and Swarm Platforms — autonomous path planning, navigation stacks, and collision avoidance algorithms integrating AI/ML and RL for truly intelligent decision making and control.",
+    color: "orange",
+  },
+  {
+    id: "mechanical",
+    title: "Mechanical Design & Manufacturing",
+    icon: "settings",
+    description: "CAD design and assembly of mechanical structures and chassis, structural FEA strain analysis, fluid dynamics simulations, additive manufacturing, and smart manufacturing.",
+    color: "rose",
+  },
+];
+
+export const projects = [
+  {
+    id: 1,
+    title: "Swarm Exploration and Autonomous Mapping using ROS2",
+    summary: "The project aims to develop a simulation-based multi-robot exploration and mapping framework using ROS2.",
+    status: "Ongoing",
+    domains: ["ROS"],
+    mentors: ["Saigirish S"],
+    contributors: [],
+    docsLink: "#",
+    demoLink: "#",
+  },
+  {
+    id: 2,
+    title: "Not Rocket Science: Physical Visual Servoing based Missile Guidance Simulator",
+    summary: "The project aims to develop a vision-based guidance platform capable of tracking a visual target and simulating autonomous interception using classical guidance algorithms.",
+    status: "Ongoing",
+    domains: ["Computer Vision", "Control Systems"],
+    mentors: ["Amay Shetty", "Anjaneya Damle"],
+    contributors: [],
+    docsLink: "#",
+    demoLink: "#",
+  },
+  {
+    id: 3,
+    title: "Bob Ross without ROS: A 3-Link Robotic Arm for Painting",
+    summary: "The project aims to design and develop a three-link (3 DoF) robotic painting manipulator capable of converting image contours into executable trajectories and accurately reproducing them on a 2D canvas.",
+    status: "Ongoing",
+    domains: ["Computer Vision", "Mechanical Design and Manufacturing"],
+    mentors: ["Anjaneya Damle", "Parv Dixit"],
+    contributors: [],
+    docsLink: "#",
+    demoLink: "#",
+  },
+  {
+    id: 4,
+    title: "Drone Swarm: Trajectory Tracking and Multi-Drone Formation Control",
+    summary: "The project aims to design and implement a multi-drone system where three nano drones can follow a desired trajectory and hold a formation relative to each other, with motion tracked by external sensors and commands sent over ROS.",
+    status: "Ongoing",
+    domains: ["ROS", "Control Systems", "Computer Vision"],
+    mentors: ["Krish Jain"],
+    contributors: [],
+    docsLink: "#",
+    demoLink: "#",
+  },
+  {
+    id: 5,
+    title: "HAVEN: Hostile-Aware Verifiable Election Network",
+    summary: "The project aims to achieve cryptographically secure leader election among a swarm of WSNs under suitable constraints, and implement the protocol on low-end embedded devices (collaborative project with DevLup Labs@IITJ).",
+    status: "Ongoing",
+    domains: ["Embedded Systems", "Cryptography", "Communication Protocols"],
+    mentors: ["Taksh Mehta", "Brijesh Thakkar"],
+    contributors: [],
+    docsLink: "#",
+    demoLink: "#",
+  },
+  {
+    id: 6,
+    title: "HiveMind: Multi-Agent Foraging with Emergent Discrete Communication under Partial Observability",
+    summary: "This project aims to develop a multi-agent reinforcement learning framework to train partially observable robots to develop emergent communication for cooperative resource foraging (collaborative project with RAID@IITJ).",
+    status: "Ongoing",
+    domains: ["Autonomous Systems", "Reinforcement Learning", "Physics-based Simulation"],
+    mentors: ["Taksh Mehta", "Soham Wad"],
+    contributors: [],
+    docsLink: "#",
+    demoLink: "#",
+  },
+];
+
+export const domainColors: Record<string, string> = {
+  "ROS": "bg-cyan-500/10 text-cyan-400 border-cyan-500/20",
+  "Computer Vision": "bg-violet-500/10 text-violet-400 border-violet-500/20",
+  "Control Systems": "bg-emerald-500/10 text-emerald-400 border-emerald-500/20",
+  "Mechanical Design and Manufacturing": "bg-orange-500/10 text-orange-400 border-orange-500/20",
+  "Autonomous Systems": "bg-blue-500/10 text-blue-400 border-blue-500/20",
+  "Embedded Systems": "bg-yellow-500/10 text-yellow-400 border-yellow-500/20",
+  "Cryptography": "bg-rose-500/10 text-rose-400 border-rose-500/20",
+  "Communication Protocols": "bg-pink-500/10 text-pink-400 border-pink-500/20",
+  "Reinforcement Learning": "bg-indigo-500/10 text-indigo-400 border-indigo-500/20",
+  "Physics-based Simulation": "bg-teal-500/10 text-teal-400 border-teal-500/20",
+};
+
+export const teamMembers = [
+  {
+    id: 1,
+    name: "",
+    role: "Overall Co-ordinator",
+    email: "robotics@iitj.ac.in",
+    linkedin: "",
+    github: "",
+    image: "",
+  },
+  {
+    id: 2,
+    name: "",
+    role: "Overall Co-ordinator",
+    email: "",
+    linkedin: "",
+    github: "",
+    image: "",
+  },
+];
+
+export const facultyAdvisor = {
+  name: "Dr. Binod Kumar",
+  department: "Department of Electronics Engineering",
+  institution: "IIT Jodhpur",
+};
+
+export const alumni = [
+  {
+    id: 1,
+    name: "Aaroh Kale",
+    batch: "B.Tech Class of 2026",
+    position: "Masters student @ Delft University of Technology (TU Delft)",
+    linkedin: "https://www.linkedin.com/in/aaroh-kale-4650a7253/",
+  },
+  {
+    id: 2,
+    name: "Anuj Patil",
+    batch: "B.Tech Class of 2026",
+    position: "Software Engineer @ Deloitte",
+    linkedin: "https://www.linkedin.com/in/anuj-vijay-patil/",
+  },
+  {
+    id: 3,
+    name: "Dhruva Kumar Kaushal",
+    batch: "B.Tech Class of 2026",
+    position: "Software Engineer @ Plaid",
+    linkedin: "https://www.linkedin.com/in/dhruvakkaushal/",
+  },
+  {
+    id: 4,
+    name: "Yash Golani",
+    batch: "B.Tech Class of 2026",
+    position: "Associate @ Caterpillar Inc",
+    linkedin: "https://www.linkedin.com/in/yash-golani-144210106/",
+  },
+  {
+    id: 5,
+    name: "Dhyan Naik",
+    batch: "B.Tech Class of 2025",
+    position: "Analyst (Strategy, Corporate R&D) @ IHI Corporation",
+    linkedin: "https://www.linkedin.com/in/dhyan-naik-a98974244/",
+  },
+  {
+    id: 6,
+    name: "Manan Jain",
+    batch: "B.Tech Class of 2025",
+    position: "Business Solutions Analyst @ ICICI Bank",
+    linkedin: "https://www.linkedin.com/in/manan-srivastava-623097230/",
+  },
+  {
+    id: 7,
+    name: "Manan Srivastava",
+    batch: "B.Tech Class of 2025",
+    position: "Business Technology Solutions Associate @ ZS",
+    linkedin: "https://www.linkedin.com/in/manan-srivastava-623097230/",
+  },
+  {
+    id: 8,
+    name: "Rishav Aich",
+    batch: "B.Tech Class of 2025",
+    position: "AI Engineer @ ICICI Bank",
+    linkedin: "https://www.linkedin.com/in/rishav-aich-216a56227/",
+  },
+  {
+    id: 9,
+    name: "Vinay Tailor",
+    batch: "B.Tech Class of 2025",
+    position: "Assistant Manager @ International Tractors Limited",
+    linkedin: "https://www.linkedin.com/in/vinay-tailor-9ab25a23a/",
+  },
+];
