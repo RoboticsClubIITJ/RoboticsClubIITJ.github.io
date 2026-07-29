@@ -3,7 +3,6 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { projects, domainColors } from '@/lib/data';
 import { FileText, Video, Users, UserCheck, Filter } from 'lucide-react';
-import { LiquidGlassButton } from '@/components/ui/liquid-glass-button';
 type FilterType = 'All' | 'Ongoing' | 'Completed';
 export default function ProjectsPage() {
   const [filter, setFilter] = useState<FilterType>('All');
