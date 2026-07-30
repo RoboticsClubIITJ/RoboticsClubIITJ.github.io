@@ -101,9 +101,14 @@ export function Footer() {
             </ul>
           </div>
         </div>
-        <div className="mt-12 pt-8 border-t border-white/8 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-white/30">© 2026 {siteConfig.name}. All Rights Reserved.</p>
-          <p className="text-xs text-white/20">Indian Institute of Technology Jodhpur</p>
+        <div className="mt-12 pt-8 border-t border-white/8">
+          <div className="pb-4 text-center sm:text-left text-[11px] font-mono tracking-wider text-white/40">
+            Created by <span className="text-cyan-400 font-semibold">Taksh Mehta</span> & <span className="text-cyan-400 font-semibold">Piyush Singh Bhati</span>
+          </div>
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-white/5 pt-4">
+            <p className="text-xs text-white/30">© 2026 {siteConfig.name}. All Rights Reserved.</p>
+            <p className="text-xs text-white/20">Indian Institute of Technology Jodhpur</p>
+          </div>
         </div>
       </div>
     </footer>
