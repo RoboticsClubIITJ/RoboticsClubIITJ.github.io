@@ -1,5 +1,5 @@
 'use client';
-import { useRef } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { SplineScene } from '@/components/ui/splite';
 import { Spotlight } from '@/components/ui/spotlight';
 import { Card } from '@/components/ui/card';
@@ -21,6 +21,17 @@ export default function HomePage() {
   
   const contentRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const [videoSrc, setVideoSrc] = useState<string>('');
+
+  // Pre-fetch the video as a Blob so scrubbing doesn't trigger HTTP Range Requests
+  useEffect(() => {
+    fetch('/StartVideo.mp4')
+      .then((res) => res.blob())
+      .then((blob) => {
+        setVideoSrc(URL.createObjectURL(blob));
+      })
+      .catch((err) => console.error('Video fetch failed:', err));
+  }, []);
 
   const { scrollYProgress } = useScroll({
     target: contentRef,
