@@ -1,5 +1,7 @@
 'use client';
+import { useState } from 'react';
 import { SplineScene } from '@/components/ui/splite';
+import { VideoIntro } from '@/components/VideoIntro';
 import { Spotlight } from '@/components/ui/spotlight';
 import { Card } from '@/components/ui/card';
 import { LiquidGlassButton } from '@/components/ui/liquid-glass-button';
@@ -17,9 +19,12 @@ import {
 
 export default function HomePage() {
   const featuredProjects = projects.slice(0, 3);
+  const [introFinished, setIntroFinished] = useState(false);
 
   return (
-    <div className="relative min-h-screen overflow-x-hidden">
+    <>
+      <VideoIntro onComplete={() => setIntroFinished(true)} />
+      <div className={`relative min-h-screen overflow-x-hidden ${!introFinished ? 'h-screen overflow-hidden pointer-events-none opacity-0' : 'opacity-100 transition-opacity duration-1000'}`}>
 
       {/* ─── HERO SECTION — Full-bleed Spline background ─── */}
       <section className="relative min-h-screen overflow-hidden">
@@ -246,5 +251,6 @@ export default function HomePage() {
         </div>
       </section>
     </div>
+    </>
   );
 }
