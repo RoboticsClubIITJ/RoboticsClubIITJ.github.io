@@ -195,19 +195,21 @@ export interface TeamMember {
 export const coordinators: TeamMember[] = [
   {
     id: 1,
-    name: "Taksh Mehta",
+    name: "",
     role: "Overall Coordinator",
-    email: "robotics@iitj.ac.in",
+    email: "",
     linkedin: "",
     github: "",
+    image: "",
   },
   {
     id: 2,
-    name: "Piyush Singh Bhati",
+    name: "",
     role: "Overall Coordinator",
-    email: "robotics@iitj.ac.in",
+    email: "",
     linkedin: "",
     github: "",
+    image: "",
   },
 ];
 
@@ -215,26 +217,29 @@ export const coreTeam: TeamMember[] = [
   {
     id: 1,
     name: "",
-    role: "Core Member / Sub-team Lead",
+    role: "",
     email: "",
     linkedin: "",
     github: "",
+    image: "",
   },
   {
     id: 2,
     name: "",
-    role: "Core Member / Sub-team Lead",
+    role: "",
     email: "",
     linkedin: "",
     github: "",
+    image: "",
   },
   {
     id: 3,
     name: "",
-    role: "Core Member / Sub-team Lead",
+    role: "",
     email: "",
     linkedin: "",
     github: "",
+    image: "",
   },
 ];
 
@@ -246,6 +251,7 @@ export const mentors: TeamMember[] = [
     email: "",
     linkedin: "",
     github: "",
+    image: "",
   },
   {
     id: 2,
@@ -254,6 +260,7 @@ export const mentors: TeamMember[] = [
     email: "",
     linkedin: "",
     github: "",
+    image: "",
   },
 ];
 

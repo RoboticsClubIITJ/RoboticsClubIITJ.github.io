@@ -31,12 +31,20 @@ const MemberCard = ({ member, index, highlight = false }: { member: any, index: 
       }`}
     >
       <div className="flex items-start gap-5">
-        <div className={`w-16 h-16 rounded-full border flex items-center justify-center flex-shrink-0 ${
+        <div className={`w-16 h-16 rounded-full border overflow-hidden flex items-center justify-center flex-shrink-0 ${
           highlight 
             ? 'bg-gradient-to-br from-cyan-500/30 to-violet-500/30 border-cyan-500/30 text-cyan-400' 
             : 'bg-gradient-to-br from-white/10 to-transparent border-white/10 text-white/30'
         }`}>
-          <User className="w-8 h-8" />
+          {member.image ? (
+            <img 
+              src={member.image} 
+              alt={member.name || 'Team Member'} 
+              className="w-full h-full object-cover"
+            />
+          ) : (
+            <User className="w-8 h-8" />
+          )}
         </div>
         <div className="flex-1 min-w-0">
           <h3 className="text-white font-bold text-lg truncate">
