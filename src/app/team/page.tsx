@@ -1,6 +1,6 @@
 'use client';
 import { motion } from 'framer-motion';
-import { teamMembers, facultyAdvisor } from '@/lib/data';
+import { coordinators, coreTeam, mentors, facultyAdvisor } from '@/lib/data';
 import { Mail, User } from 'lucide-react';
 import { LiquidGlassButton } from '@/components/ui/liquid-glass-button';
 import Link from 'next/link';
@@ -16,6 +16,56 @@ const LinkedinIcon = () => (
     <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
   </svg>
 );
+
+const MemberCard = ({ member, index, highlight = false }: { member: any, index: number, highlight?: boolean }) => {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5, delay: index * 0.05 }}
+      className={`p-6 rounded-2xl border bg-white/3 backdrop-blur-sm transition-all duration-300 ${
+        highlight 
+          ? 'border-cyan-500/20 hover:border-cyan-500/40 bg-gradient-to-br from-cyan-500/5 to-transparent shadow-lg shadow-cyan-500/5' 
+          : 'border-white/8 hover:border-violet-500/20'
+      }`}
+    >
+      <div className="flex items-start gap-5">
+        <div className={`w-16 h-16 rounded-full border flex items-center justify-center flex-shrink-0 ${
+          highlight 
+            ? 'bg-gradient-to-br from-cyan-500/30 to-violet-500/30 border-cyan-500/30 text-cyan-400' 
+            : 'bg-gradient-to-br from-white/10 to-transparent border-white/10 text-white/30'
+        }`}>
+          <User className="w-8 h-8" />
+        </div>
+        <div className="flex-1 min-w-0">
+          <h3 className="text-white font-bold text-lg truncate">
+            {member.name || <span className="text-white/25 italic">Name TBD</span>}
+          </h3>
+          <p className="text-cyan-400 text-sm tracking-wide uppercase mt-0.5">{member.role}</p>
+          <div className="flex items-center gap-3 mt-4">
+            {member.email && (
+              <a href={`mailto:${member.email}`} className="w-8 h-8 rounded-full liquid-glass flex items-center justify-center text-white/50 hover:text-cyan-400 transition-colors">
+                <Mail className="w-3.5 h-3.5" />
+              </a>
+            )}
+            {member.linkedin && (
+              <a href={member.linkedin} target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-full liquid-glass flex items-center justify-center text-white/50 hover:text-cyan-400 transition-colors">
+                <LinkedinIcon />
+              </a>
+            )}
+            {member.github && (
+              <a href={member.github} target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-full liquid-glass flex items-center justify-center text-white/50 hover:text-white transition-colors">
+                <GithubIcon />
+              </a>
+            )}
+          </div>
+        </div>
+      </div>
+    </motion.div>
+  );
+};
+
 export default function TeamPage() {
   return (
     <div className="relative min-h-screen pt-24 pb-24 overflow-x-hidden">
@@ -30,59 +80,58 @@ export default function TeamPage() {
           className="mb-16"
         >
           <span className="text-xs font-bold tracking-[0.25em] text-cyan-400 uppercase">TEAM DIRECTORY</span>
-          <h1 className="text-5xl md:text-6xl font-black text-white mt-3 mb-4">Core Team Members</h1>
+          <h1 className="text-5xl md:text-6xl font-black text-white mt-3 mb-4">Meet the Team</h1>
           <div className="w-16 h-0.5 bg-gradient-to-r from-cyan-500 to-transparent mb-6" />
           <p className="text-white/50 text-lg max-w-2xl">
-            The student coordinators and technical heads directing the club&apos;s research, engineering, and outreach projects.
+            The student coordinators, core technical team, and project mentors directing the club&apos;s research, engineering, and outreach.
           </p>
         </motion.div>
-        {/* Team cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-20">
-          {teamMembers.map((member, i) => (
-            <motion.div
-              key={member.id}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="p-6 rounded-2xl border border-white/8 bg-white/3 backdrop-blur-sm hover:border-cyan-500/25 transition-all duration-300"
-            >
-              <div className="flex items-start gap-5">
-                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-cyan-500/20 to-violet-500/20 border border-white/10 flex items-center justify-center flex-shrink-0">
-                  <User className="w-8 h-8 text-white/30" />
-                </div>
-                <div className="flex-1">
-                  <h3 className="text-white font-bold text-lg">
-                    {member.name || <span className="text-white/25 italic">Name TBD</span>}
-                  </h3>
-                  <p className="text-cyan-400 text-sm tracking-wide uppercase mt-0.5">{member.role}</p>
-                  <div className="flex items-center gap-3 mt-4">
-                    {member.email && (
-                      <a href={`mailto:${member.email}`} className="w-8 h-8 rounded-full liquid-glass flex items-center justify-center text-white/50 hover:text-cyan-400 transition-colors">
-                        <Mail className="w-3.5 h-3.5" />
-                      </a>
-                    )}
-                    {member.linkedin && (
-                      <a href={member.linkedin} target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-full liquid-glass flex items-center justify-center text-white/50 hover:text-cyan-400 transition-colors">
-                        <LinkedinIcon />
-                      </a>
-                    )}
-                    {member.github && (
-                      <a href={member.github} target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-full liquid-glass flex items-center justify-center text-white/50 hover:text-white transition-colors">
-                        <GithubIcon />
-                      </a>
-                    )}
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-          ))}
+
+        {/* Coordinators Section */}
+        <div className="mb-20">
+          <div className="flex items-center gap-3 mb-8">
+            <span className="text-xs font-bold tracking-[0.2em] text-cyan-400/60 uppercase font-mono">// COORDINATION</span>
+            <h2 className="text-2xl font-bold text-white">Club Coordinators</h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {coordinators.map((member, i) => (
+              <MemberCard key={member.id} member={member} index={i} highlight={true} />
+            ))}
+          </div>
         </div>
+
+        {/* Core Team Section */}
+        <div className="mb-20">
+          <div className="flex items-center gap-3 mb-8">
+            <span className="text-xs font-bold tracking-[0.2em] text-cyan-400/60 uppercase font-mono">// CORE ENGINE</span>
+            <h2 className="text-2xl font-bold text-white">Core Technical Team</h2>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+            {coreTeam.map((member, i) => (
+              <MemberCard key={member.id} member={member} index={i} />
+            ))}
+          </div>
+        </div>
+
+        {/* Mentors Section */}
+        <div className="mb-20">
+          <div className="flex items-center gap-3 mb-8">
+            <span className="text-xs font-bold tracking-[0.2em] text-cyan-400/60 uppercase font-mono">// ADVISORY & MENTORSHIP</span>
+            <h2 className="text-2xl font-bold text-white">Technical & Alumni Mentors</h2>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-6">
+            {mentors.map((member, i) => (
+              <MemberCard key={member.id} member={member} index={i} />
+            ))}
+          </div>
+        </div>
+
         {/* Faculty Advisor */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mb-16"
+          className="mb-20"
         >
           <span className="text-xs font-bold tracking-[0.25em] text-white/30 uppercase">FACULTY ADVISOR</span>
           <h2 className="text-3xl font-black text-white mt-2 mb-8">Faculty Advisor</h2>
@@ -99,6 +148,7 @@ export default function TeamPage() {
             </div>
           </div>
         </motion.div>
+
         {/* Notice about incomplete data */}
         <motion.div
           initial={{ opacity: 0 }}
@@ -107,9 +157,10 @@ export default function TeamPage() {
           className="p-6 rounded-2xl border border-yellow-500/20 bg-yellow-500/5 mb-10"
         >
           <p className="text-yellow-400/80 text-sm">
-            ⚠️ Team member data is being updated. Current coordinators&apos; information will be added soon.
+            ⚠️ Some team member data is being updated. Additional members and links will be added soon.
           </p>
         </motion.div>
+
         <Link href="/contact">
           <LiquidGlassButton variant="cyan">Get in Touch</LiquidGlassButton>
         </Link>

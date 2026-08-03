@@ -182,24 +182,78 @@ export const domainColors: Record<string, string> = {
   "Physics-based Simulation": "bg-teal-500/10 text-teal-400 border-teal-500/20",
 };
 
-export const teamMembers = [
+export interface TeamMember {
+  id: number;
+  name: string;
+  role: string;
+  email?: string;
+  linkedin?: string;
+  github?: string;
+  image?: string;
+}
+
+export const coordinators: TeamMember[] = [
   {
     id: 1,
-    name: "",
-    role: "Overall Co-ordinator",
+    name: "Taksh Mehta",
+    role: "Overall Coordinator",
     email: "robotics@iitj.ac.in",
     linkedin: "",
     github: "",
-    image: "",
+  },
+  {
+    id: 2,
+    name: "Piyush Singh Bhati",
+    role: "Overall Coordinator",
+    email: "robotics@iitj.ac.in",
+    linkedin: "",
+    github: "",
+  },
+];
+
+export const coreTeam: TeamMember[] = [
+  {
+    id: 1,
+    name: "",
+    role: "Core Member / Sub-team Lead",
+    email: "",
+    linkedin: "",
+    github: "",
   },
   {
     id: 2,
     name: "",
-    role: "Overall Co-ordinator",
+    role: "Core Member / Sub-team Lead",
     email: "",
     linkedin: "",
     github: "",
-    image: "",
+  },
+  {
+    id: 3,
+    name: "",
+    role: "Core Member / Sub-team Lead",
+    email: "",
+    linkedin: "",
+    github: "",
+  },
+];
+
+export const mentors: TeamMember[] = [
+  {
+    id: 1,
+    name: "",
+    role: "Technical / Project Mentor",
+    email: "",
+    linkedin: "",
+    github: "",
+  },
+  {
+    id: 2,
+    name: "",
+    role: "Technical / Project Mentor",
+    email: "",
+    linkedin: "",
+    github: "",
   },
 ];
 
