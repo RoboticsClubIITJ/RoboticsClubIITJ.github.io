@@ -1,11 +1,11 @@
 'use client';
-import { useRef, useState, useEffect } from 'react';
+import { useRef } from 'react';
 import { SplineScene } from '@/components/ui/splite';
 import { Spotlight } from '@/components/ui/spotlight';
 import { Card } from '@/components/ui/card';
 import { LiquidGlassButton } from '@/components/ui/liquid-glass-button';
 import { projects, whatWeDo, siteConfig, domainColors } from '@/lib/data';
-import { motion, useScroll, useMotionValueEvent, useSpring } from 'framer-motion';
+import { motion } from 'framer-motion';
 import Link from 'next/link';
 import {
   ArrowRight,
@@ -20,47 +20,17 @@ export default function HomePage() {
   const featuredProjects = projects.slice(0, 3);
   
   const contentRef = useRef<HTMLDivElement>(null);
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const [videoSrc, setVideoSrc] = useState<string>('');
-
-  // Pre-fetch the video as a Blob so scrubbing doesn't trigger HTTP Range Requests
-  useEffect(() => {
-    fetch('/StartVideo.mp4')
-      .then((res) => res.blob())
-      .then((blob) => {
-        setVideoSrc(URL.createObjectURL(blob));
-      })
-      .catch((err) => console.error('Video fetch failed:', err));
-  }, []);
-
-  const { scrollYProgress } = useScroll({
-    target: contentRef,
-    offset: ["start end", "end end"]
-  });
-
-  // Add a spring physics layer to smooth out the mouse wheel steps
-  const smoothProgress = useSpring(scrollYProgress, {
-    damping: 30,
-    stiffness: 200,
-    mass: 0.2
-  });
-
-  useMotionValueEvent(smoothProgress, "change", (latest) => {
-    if (videoRef.current && !isNaN(videoRef.current.duration)) {
-      videoRef.current.currentTime = videoRef.current.duration * latest;
-    }
-  });
 
   return (
     <>
       {/* ─── FIXED BACKGROUND VIDEO ─── */}
       <div className="fixed inset-0 z-0 pointer-events-none bg-black">
         <video 
-          ref={videoRef}
           src="/StartVideo.mp4"
           muted
           playsInline
           autoPlay
+          loop
           preload="auto"
           className="w-full h-full object-cover opacity-40"
         />
