@@ -1,12 +1,11 @@
 'use client';
-import { useState } from 'react';
+import { useRef } from 'react';
 import { SplineScene } from '@/components/ui/splite';
-import { VideoIntro } from '@/components/VideoIntro';
 import { Spotlight } from '@/components/ui/spotlight';
 import { Card } from '@/components/ui/card';
 import { LiquidGlassButton } from '@/components/ui/liquid-glass-button';
 import { projects, whatWeDo, siteConfig, domainColors } from '@/lib/data';
-import { motion } from 'framer-motion';
+import { motion, useScroll, useMotionValueEvent, useSpring } from 'framer-motion';
 import Link from 'next/link';
 import {
   ArrowRight,
@@ -19,15 +18,48 @@ import {
 
 export default function HomePage() {
   const featuredProjects = projects.slice(0, 3);
-  const [introFinished, setIntroFinished] = useState(false);
+  
+  const contentRef = useRef<HTMLDivElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  const { scrollYProgress } = useScroll({
+    target: contentRef,
+    offset: ["start end", "end end"]
+  });
+
+  // Add a spring physics layer to smooth out the mouse wheel steps
+  const smoothProgress = useSpring(scrollYProgress, {
+    damping: 30,
+    stiffness: 200,
+    mass: 0.2
+  });
+
+  useMotionValueEvent(smoothProgress, "change", (latest) => {
+    if (videoRef.current && !isNaN(videoRef.current.duration)) {
+      videoRef.current.currentTime = videoRef.current.duration * latest;
+    }
+  });
 
   return (
     <>
-      <VideoIntro onComplete={() => setIntroFinished(true)} />
-      <div className={`relative min-h-screen overflow-x-hidden ${!introFinished ? 'h-screen overflow-hidden pointer-events-none opacity-0' : 'opacity-100 transition-opacity duration-1000'}`}>
+      {/* ─── FIXED BACKGROUND VIDEO ─── */}
+      <div className="fixed inset-0 z-[-1] pointer-events-none bg-black">
+        <video 
+          ref={videoRef}
+          src="/StartVideo.mp4"
+          muted
+          playsInline
+          preload="auto"
+          className="w-full h-full object-cover opacity-40"
+        />
+        {/* Gradients to darken top and bottom so text remains readable */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black opacity-80" />
+      </div>
+
+      <div className="relative min-h-screen overflow-x-hidden">
 
       {/* ─── HERO SECTION — Full-bleed Spline background ─── */}
-      <section className="relative min-h-screen overflow-hidden">
+      <section className="relative min-h-screen overflow-hidden bg-black z-10">
 
         {/* Full-bleed Spline 3D scene as background */}
         <motion.div
@@ -47,8 +79,8 @@ export default function HomePage() {
         <div className="absolute inset-0 z-10 pointer-events-none bg-gradient-to-r from-black/90 via-black/55 to-transparent" />
         {/* Top navbar fade */}
         <div className="absolute top-0 inset-x-0 h-32 z-10 pointer-events-none bg-gradient-to-b from-black/70 to-transparent" />
-        {/* Bottom fade into next section */}
-        <div className="absolute bottom-0 inset-x-0 h-52 z-10 pointer-events-none bg-gradient-to-t from-background via-background/60 to-transparent" />
+        {/* Bottom fade into next section - fades to transparent so the fixed video reveals underneath */}
+        <div className="absolute bottom-0 inset-x-0 h-52 z-10 pointer-events-none bg-gradient-to-t from-transparent via-black/80 to-transparent" />
         {/* Subtle grid pattern overlay */}
         <div className="absolute inset-0 z-10 pointer-events-none grid-bg opacity-20" />
 
@@ -136,8 +168,14 @@ export default function HomePage() {
         </motion.div>
       </section>
 
+      {/* ─── SCROLL CONTENT WRAPPER ─── */}
+      <div ref={contentRef} className="relative">
+        
+        {/* Seamless blend from the black hero section into the transparent video background */}
+        <div className="absolute top-0 inset-x-0 h-64 bg-gradient-to-b from-black to-transparent pointer-events-none z-0" />
+
       {/* ─── WHAT WE DO ─── */}
-      <section className="relative py-28 px-4 sm:px-6">
+      <section className="relative py-28 px-4 sm:px-6 z-10">
         <div className="max-w-7xl mx-auto">
           <div className="mb-16 text-center">
             <span className="text-xs font-bold tracking-[0.25em] text-slate-400 uppercase">CAPABILITIES</span>
@@ -250,6 +288,8 @@ export default function HomePage() {
           </motion.div>
         </div>
       </section>
+      
+      </div>
     </div>
     </>
   );
