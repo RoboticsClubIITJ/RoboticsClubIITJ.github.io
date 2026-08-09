@@ -52,10 +52,29 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark">
-      <body className={`${inter.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable} antialiased min-h-screen bg-background`}>
-        <Navbar />
-        <main>{children}</main>
-        <Footer />
+      <body className={`${inter.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable} antialiased min-h-screen bg-background text-foreground relative`}>
+        {/* Site-wide Background Video */}
+        <div className="fixed inset-0 z-0 pointer-events-none bg-black">
+          <video 
+            src="/StartVideo.mp4"
+            muted
+            playsInline
+            autoPlay
+            loop
+            preload="auto"
+            className="w-full h-full object-cover opacity-35"
+          />
+          {/* Corner vignette / gradient overlay to darken corners and edges */}
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_10%,rgba(0,0,0,0.8)_100%)]" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black opacity-60" />
+        </div>
+
+        {/* Content wrapper */}
+        <div className="relative z-10 min-h-screen flex flex-col">
+          <Navbar />
+          <main className="flex-1">{children}</main>
+          <Footer />
+        </div>
       </body>
     </html>
   );

@@ -23,21 +23,6 @@ export default function HomePage() {
 
   return (
     <>
-      {/* ─── FIXED BACKGROUND VIDEO ─── */}
-      <div className="fixed inset-0 z-0 pointer-events-none bg-black">
-        <video 
-          src="/StartVideo.mp4"
-          muted
-          playsInline
-          autoPlay
-          loop
-          preload="auto"
-          className="w-full h-full object-cover opacity-40"
-        />
-        {/* Gradients to darken top and bottom so text remains readable */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black opacity-80" />
-      </div>
-
       <div className="relative min-h-screen overflow-x-hidden z-10">
 
       {/* ─── HERO SECTION — Full-bleed Spline background ─── */}
