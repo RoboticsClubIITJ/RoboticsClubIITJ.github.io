@@ -27,8 +27,12 @@ export function Navbar() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 group">
-            <div className="w-10 h-10 flex items-center justify-center group-hover:scale-105 transition-all duration-300">
-              <img src="/logo.png" alt="Robotics IITJ Logo" className="w-full h-full object-contain drop-shadow-[0_0_8px_rgba(34,211,238,0.3)]" />
+            <div className="w-28 h-14 flex items-center justify-center group-hover:scale-105 transition-all duration-300">
+              <img
+                src="/robosoc_logo.png"
+                alt="Robotics IITJ Logo"
+                className="w-full h-full object-contain drop-shadow-[0_0_8px_rgba(34,211,238,0.3)]"
+              />
             </div>
             <div className="leading-tight">
               <div className="text-xs font-black tracking-[0.2em] text-white uppercase">ROBOTICS</div>
