@@ -26,6 +26,9 @@ export const metadata: Metadata = {
   title: "Robotics Club IIT Jodhpur",
   description:
     "Official website of the Robotics Club, IIT Jodhpur. Exploring the frontiers of autonomous and intelligent systems for a better world",
+  icons: {
+    icon: '/logo.png',
+  },
   keywords: [
     "IIT Jodhpur",
     "IITJ",
