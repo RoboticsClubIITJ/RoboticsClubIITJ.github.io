@@ -35,8 +35,7 @@ export function Navbar() {
               />
             </div>
             <div className="leading-tight">
-              <div className="text-xs font-black tracking-[0.2em] text-white uppercase">ROBOTICS</div>
-              <div className="text-[10px] font-bold tracking-[0.3em] text-cyan-400 uppercase">IITJ</div>
+              <div className="text-[25px] font-bold tracking-[0.3em] text-cyan-400 uppercase">IITJ</div>
             </div>
           </Link>
           {/* Desktop nav */}
