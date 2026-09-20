@@ -10,13 +10,13 @@ import type { Blog } from "@/lib/blogs";
 
 export default function BlogRenderer({ blog }: { blog: Blog }) {
   return (
-    <div className="relative min-h-screen pt-24 pb-24 overflow-x-hidden">
-      {/* Ambient background */}
+    <div className="relative min-h-screen pt-24 pb-24 overflow-x-hidden bg-black/30">
+      {/* Ambient background - subdued for reading */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-cyan-500/4 rounded-full blur-[180px]" />
+        <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-cyan-500/2 rounded-full blur-[200px]" />
       </div>
 
-      <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6">
+      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -73,6 +73,57 @@ export default function BlogRenderer({ blog }: { blog: Blog }) {
             <ReactMarkdown
               remarkPlugins={[remarkGfm]}
               rehypePlugins={[rehypeHighlight]}
+              components={{
+                a: ({ node, ...props }) => {
+                  const href = props.href || "";
+                  
+                  // Check for YouTube links (watch, youtu.be, or playlist)
+                  const isYouTube = href.includes("youtube.com/watch") || 
+                                    href.includes("youtu.be/") || 
+                                    href.includes("youtube.com/playlist");
+                  
+                  if (isYouTube && typeof props.children === 'string' && props.children.includes('http')) {
+                    let embedUrl = "";
+                    
+                    if (href.includes("youtube.com/watch")) {
+                      const url = new URL(href);
+                      const videoId = url.searchParams.get("v");
+                      if (videoId) embedUrl = `https://www.youtube.com/embed/${videoId}`;
+                    } else if (href.includes("youtu.be/")) {
+                      const videoId = href.split("youtu.be/")[1]?.split("?")[0];
+                      if (videoId) embedUrl = `https://www.youtube.com/embed/${videoId}`;
+                    } else if (href.includes("youtube.com/playlist")) {
+                      const url = new URL(href);
+                      const listId = url.searchParams.get("list");
+                      if (listId) embedUrl = `https://www.youtube.com/embed/videoseries?list=${listId}`;
+                    }
+
+                    if (embedUrl) {
+                      return (
+                        <span className="my-8 aspect-video w-full rounded-2xl overflow-hidden border border-white/10 shadow-2xl block relative">
+                          <iframe
+                            className="absolute top-0 left-0 w-full h-full"
+                            src={embedUrl}
+                            title="YouTube video player"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowFullScreen
+                          />
+                        </span>
+                      );
+                    }
+                  }
+                  
+                  // Standard links (open in new tab if external)
+                  const isExternal = href.startsWith("http");
+                  return (
+                    <a 
+                      {...props} 
+                      target={isExternal ? "_blank" : undefined}
+                      rel={isExternal ? "noopener noreferrer" : undefined}
+                    />
+                  );
+                }
+              }}
             >
               {blog.content}
             </ReactMarkdown>
