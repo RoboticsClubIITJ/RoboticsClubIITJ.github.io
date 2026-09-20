@@ -25,6 +25,7 @@ export const navLinks = [
   { label: "Projects", href: "/projects" },
   { label: "Team", href: "/team" },
   { label: "Alumni", href: "/alumni" },
+  { label: "Blogs", href: "/blogs" },
   { label: "Join Us", href: "/contact" },
   { label: "Knowledge Base", href: "https://app.notion.com/p/Robotics-Society-Knowledge-Repository-3a5f496d3f73818a8866c490e687b164", external: true },
 ];
