@@ -25,7 +25,9 @@ Environment—(information extracted)—>Sensors——>Microcontroller——>Act
 
 Here is an overview of the kinds of batteries.
 
-When your projects start, you will very quickly become familiar with Li-Po batteries. They are lightweight, high-energy, rechargeable and offer a steady power-supply,so we use them frequently in mobile robots, drones, etc. But they require careful handling, as they can cause quite the bang if not used correctly(:P) (https://www.youtube.com/watch?v=arOXg7y6r8k&t=3s)
+When your projects start, you will very quickly become familiar with Li-Po batteries. They are lightweight, high-energy, rechargeable and offer a steady power-supply,so we use them frequently in mobile robots, drones, etc. But they require careful handling, as they can cause quite the bang if not used correctly(:P) 
+
+https://www.youtube.com/watch?v=arOXg7y6r8k&t=3s
 
 **Bus**: In the world of computer networks(and electronics in general) ,a bus is a shared communication pathway that helps transmit signals between sender and receiver. There are different types of signals, and hence different buses are required to transmit different kinds of signals. Your phone charging cable would typically have both buses present(hence it can both charge your phone as well as share Internet connectivity with your PC through USB tethering).
 

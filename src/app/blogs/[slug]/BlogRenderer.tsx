@@ -66,7 +66,7 @@ export default function BlogRenderer({ blog }: { blog: Blog }) {
             prose-strong:text-white/90
             prose-code:text-cyan-300 prose-code:bg-cyan-500/10 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded-md prose-code:before:content-none prose-code:after:content-none
             prose-pre:bg-white/5 prose-pre:border prose-pre:border-white/10 prose-pre:rounded-xl
-            prose-img:rounded-xl prose-img:border prose-img:border-white/10
+            prose-img:rounded-xl prose-img:border prose-img:border-white/10 prose-img:mx-auto prose-img:block
             prose-blockquote:border-l-cyan-500 prose-blockquote:bg-cyan-500/5 prose-blockquote:py-1 prose-blockquote:px-4 prose-blockquote:rounded-r-lg prose-blockquote:not-italic
             prose-ul:text-white/60 prose-ol:text-white/60"
           >

@@ -8,7 +8,7 @@ excerpt: "A comprehensive guide into Linux, C Programming, Device Drivers, and F
 
 # Embedded Systems & Firmware Development
 
-![Image Placeholder](/blogs/image.png)
+![Image Placeholder](/blogs/embedded-board.png)
 
 ## A) A Background
 
@@ -16,7 +16,7 @@ excerpt: "A comprehensive guide into Linux, C Programming, Device Drivers, and F
 
 In the 1970s, UNIX was created at Bell Labs as a small, elegant OS meant to be built upon, but licensing led to forks (BSD, System V, etc.) and fragmentation. This drove IEEE's POSIX effort in the 1980s to standardize a common API across UNIX-like systems. The GNU project aimed to build a free UNIX replacement but lacked a kernel — Linus Torvalds' 1991 Linux kernel filled that gap, and because it closely follows POSIX, it supports portable UNIX applications and became the heart of modern open-source OSes.
 
-![Linus Torvalds](/blogs/image.png)
+![Linus Torvalds](/blogs/torvalds.png)
 
 *Linus Torvalds : The developer of LINUX*
 
