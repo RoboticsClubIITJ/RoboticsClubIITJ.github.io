@@ -30,4 +30,4 @@ How a robot turns "where I want to be" into "what voltage/torque to send to the 
 **Courses / Videos**
 
  - Classical Control Systems: https://youtube.com/playlist?list=PLUMWjy5jgHK1NC52DXXrriwihVrYZKqjk&si=SFbaFe2i8h5SmEY_
-Modern Control: https://www.youtube.com/playlist?list=PLMrJAkhIeNNR20Mz-VpzgfQs5zrYi085m
+ - Modern Control: https://www.youtube.com/playlist?list=PLMrJAkhIeNNR20Mz-VpzgfQs5zrYi085m
