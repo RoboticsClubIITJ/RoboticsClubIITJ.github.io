@@ -4,6 +4,7 @@ date: 2026-09-20
 author: "Priyanshu Shah"
 tags: [embedded, firmware, linux, c]
 excerpt: "A comprehensive guide into Linux, C Programming, Device Drivers, and Firmware Development."
+thumbnail: "/blogs/embedded-board.png"
 ---
 
 # Embedded Systems & Firmware Development

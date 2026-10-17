@@ -4,6 +4,7 @@ date: 2026-10-05
 author: "Anjaneya Balkrishna Damle"
 tags: [control systems, kalman filter, PID control]
 excerpt: "A complete guide and notes for Control Systems"
+thumbnail: "/blogs/control_systems_architecture.png"
 ---
 
 ## Introduction
