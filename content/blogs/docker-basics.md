@@ -4,7 +4,7 @@ date: 2026-09-25
 author: "Piyush Singh Bhati"
 tags: [docker, containerization, virtualization]
 excerpt: "Introduction to docker and containerization"
-cover: "/blogs/docker_logo.png"
+thumbnail: "/blogs/DockerArchitecture.png"
 ---
 
 # What is Docker?

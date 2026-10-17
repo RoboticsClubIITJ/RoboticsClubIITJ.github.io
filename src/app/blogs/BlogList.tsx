@@ -44,43 +44,56 @@ export default function BlogList({ blogs }: { blogs: BlogMeta[] }) {
               >
                 <Link
                   href={`/blogs/${blog.slug}`}
-                  className="group relative flex flex-col h-full p-7 rounded-2xl border border-white/8 bg-white/3 backdrop-blur-sm hover:border-cyan-500/25 transition-all duration-300 hover:-translate-y-0.5"
+                  className="group relative flex flex-col h-full rounded-2xl border border-white/8 bg-white/3 backdrop-blur-sm hover:border-cyan-500/25 transition-all duration-300 hover:-translate-y-0.5 overflow-hidden"
                 >
-                  <time className="mb-3 px-2.5 py-1 inline-block w-fit rounded-full text-[10px] font-bold tracking-wider uppercase border bg-cyan-500/10 text-cyan-400 border-cyan-500/20">
-                    {blog.date}
-                  </time>
-                  <h3 className="text-white font-bold text-2xl mb-3 leading-snug group-hover:text-cyan-400 transition-colors duration-200">
-                    {blog.title}
-                  </h3>
-                  
-                  {blog.excerpt && (
-                    <p className="text-white/45 text-sm leading-relaxed mb-6 flex-grow">
-                      {blog.excerpt}
-                    </p>
-                  )}
-
-                  {/* Tags */}
-                  {blog.tags && blog.tags.length > 0 && (
-                    <div className="flex flex-wrap gap-1.5 mb-5">
-                      {blog.tags.map(tag => (
-                        <span key={tag} className="px-2 py-0.5 rounded-full text-[10px] font-semibold border bg-white/5 text-white/50 border-white/10">
-                          {tag}
-                        </span>
-                      ))}
+                  {blog.thumbnail && (
+                    <div className="relative w-full h-48 sm:h-56 overflow-hidden bg-white/5 border-b border-white/8">
+                      <img
+                        src={blog.thumbnail}
+                        alt={blog.title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
                     </div>
                   )}
 
-                  <div className="mt-auto pt-4 border-t border-white/6 flex items-center justify-between">
-                    {blog.author ? (
-                      <span className="text-xs text-white/50 uppercase tracking-wider font-bold">
-                        {blog.author}
-                      </span>
-                    ) : (
-                      <span />
+                  <div className="flex flex-col flex-grow p-7">
+                    <time className="mb-3 px-2.5 py-1 inline-block w-fit rounded-full text-[10px] font-bold tracking-wider uppercase border bg-cyan-500/10 text-cyan-400 border-cyan-500/20">
+                      {blog.date}
+                    </time>
+                    <h3 className="text-white font-bold text-2xl mb-3 leading-snug group-hover:text-cyan-400 transition-colors duration-200">
+                      {blog.title}
+                    </h3>
+                    
+                    {blog.excerpt && (
+                      <p className="text-white/45 text-sm leading-relaxed mb-6 flex-grow">
+                        {blog.excerpt}
+                      </p>
                     )}
-                    <span className="text-xs font-bold text-cyan-400 uppercase tracking-wider group-hover:translate-x-1 transition-transform duration-300">
-                      Read more →
-                    </span>
+
+                    {/* Tags */}
+                    {blog.tags && blog.tags.length > 0 && (
+                      <div className="flex flex-wrap gap-1.5 mb-5">
+                        {blog.tags.map(tag => (
+                          <span key={tag} className="px-2 py-0.5 rounded-full text-[10px] font-semibold border bg-white/5 text-white/50 border-white/10">
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                    )}
+
+                    <div className="mt-auto pt-4 border-t border-white/6 flex items-center justify-between">
+                      {blog.author ? (
+                        <span className="text-xs text-white/50 uppercase tracking-wider font-bold">
+                          {blog.author}
+                        </span>
+                      ) : (
+                        <span />
+                      )}
+                      <span className="text-xs font-bold text-cyan-400 uppercase tracking-wider group-hover:translate-x-1 transition-transform duration-300">
+                        Read more →
+                      </span>
+                    </div>
                   </div>
                 </Link>
               </motion.div>

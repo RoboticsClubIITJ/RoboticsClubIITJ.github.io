@@ -4,7 +4,7 @@ date: 2026-03-15
 author: "Mehta Taksh Ashish"
 tags: [basics, architecture]
 excerpt: "A beginner-friendly guide to setting up your first ROS 2 workspace."
-cover: "/blogs/architecture-diagram-basic.png"
+thumbnail: "/blogs/architecture-diagram-basic.png"
 ---
 
 

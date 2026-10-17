@@ -11,6 +11,7 @@ export type BlogMeta = {
   author?: string;
   tags?: string[];
   excerpt?: string;
+  thumbnail?: string;
 };
 
 export type Blog = BlogMeta & { content: string };
@@ -31,6 +32,7 @@ export function getAllBlogs(): BlogMeta[] {
         author: data.author,
         tags: data.tags,
         excerpt: data.excerpt,
+        thumbnail: data.thumbnail ?? data.cover,
       };
     })
     .sort((a, b) => (a.date < b.date ? 1 : -1)); // newest first
@@ -47,6 +49,7 @@ export function getBlog(slug: string): Blog | null {
     author: data.author,
     tags: data.tags,
     excerpt: data.excerpt,
+    thumbnail: data.thumbnail ?? data.cover,
     content,
   };
 }
