@@ -4,6 +4,7 @@ date: 2026-10-05
 author: "Anjaneya Balkrishna Damle, Parv Dixit"
 tags: [SLAM, localization, robotics, particle filters, navigation]
 excerpt: "A complete guide to SLAM, localization, motion estimation, and mobile robot navigation"
+thumbnail: "/blogs/slam.jpeg"
 ---
 
 ## Introduction

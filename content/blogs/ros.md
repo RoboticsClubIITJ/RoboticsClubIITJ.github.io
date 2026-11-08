@@ -4,6 +4,7 @@ date: 2026-10-05
 author: "Parv Dixit, Sai Girish"
 tags: [ROS 2, robotics, SLAM, navigation, ROS 2 control]
 excerpt: "A complete guide to ROS 2, SLAM, localization, and mobile robot navigation"
+thumbnail: "/blogs/robotic_arm.jpeg"
 ---
 
 ## Introduction
